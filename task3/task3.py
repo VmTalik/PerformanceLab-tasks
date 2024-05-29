@@ -17,7 +17,7 @@ def make_report(values_path: str, tests_path: str, report_path: str):
 
 def get_completed_tests(tests: list, values_dict: dict) -> list:
     for item in tests:
-        if item.get('value') == '':
+        if item.get('value') or item.get('value') == '':
             item['value'] = values_dict[item['id']]
         if item.get('values') and isinstance(item['values'], list):
             get_completed_tests(item['values'], values_dict)
